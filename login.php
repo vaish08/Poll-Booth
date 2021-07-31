@@ -23,7 +23,11 @@
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             $_SESSION['username'] = $username;
-            header("Location: dashboard.php");
+            if(strcmp($username, "vaish") == 0)
+              header("Location: create.php");
+            else {
+              header("Location: poll_index.php");
+            }
         } else {
             echo "<div class='form'>
                   <h3>Incorrect Username/password.</h3><br/>
