@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Create Poll.</title>
+    <link rel="stylesheet" href="style/css_poll.css">
   </head>
   <body>
     <?php
@@ -38,7 +39,7 @@
       }
     ?>
 
-     <div class="">
+     <div class="content update">
        <h2>Create Poll</h2>
        <form class="" action="create.php" method="post" enctype="multipart/form-data"><br>
         <label for="title">Title</label><br>
