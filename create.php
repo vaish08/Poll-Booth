@@ -16,8 +16,10 @@
         $image = $_FILES['photo']['name'];
         $tempname = $_FILES['photo']['tmp_name'];
         $folder = "uploads/".$image;
+        $deadline = $_POST['deadline'];
 
-        $query = "INSERT INTO `polls` (photo, title, description) VALUES ('$image', '$title', '$description')" ;
+        $query = "INSERT INTO `polls` (photo, title, description, deadline) VALUES ('$image', '$title', '$description', '$deadline')" ;
+        echo $deadline;
         mysqli_query($con, $query);
 
         move_uploaded_file($tempname, $folder);
@@ -26,14 +28,15 @@
 
         $answers = isset($_POST['answers'])? explode(PHP_EOL, $_POST['answers']) : '';
         foreach($answers as $answer){
-          if(empty(answer)) continue;
+          if(empty($answer)) continue;
 
           $query = "INSERT INTO `poll_answers` (poll_id, title) VALUES ('$poll_id', '$answer')";
           mysqli_query($con, $query);
         }
 
         $msg = 'Created Succesfully';
-        header('Location: poll_index.php');
+        header('Location: poll_index_admin.php');
+        //header('Location: create.php');
 
 
       }
@@ -50,7 +53,10 @@
         <textarea name="answers" id="answers" placeholder="Description" required></textarea><br>
         Upload file.
         <input type="file" name="photo" ><br>
+        <label for="deadline">Deadline</label><br>
+        <input type="text" name="deadline" id="deadline" placeholder="dd/mm/yyyy hh/mm"><br>
         <input type="submit" value="Create" name="upload">
+
         <p>
           Click here to <a href="logout.php"> Logout.</a>
         </p>

@@ -24,7 +24,7 @@
         if ($rows == 1) {
             $_SESSION['username'] = $username;
             if(strcmp($username, "vaish") == 0)
-              header("Location: create.php");
+              header("Location: poll_index_admin.php");
             else {
               header("Location: poll_index.php");
             }
@@ -41,7 +41,7 @@
         <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true"/>
         <input type="password" class="login-input" name="password" placeholder="Password"/>
         <input type="submit" value="Login" name="submit" class="login-button"/>
-        <p class="link"><a href="registration.php">New Registration</a></p>
+        <p class="link">New to the website? </br><a href="registration.php">New Registration</a></p>
   </form>
 <?php
     }

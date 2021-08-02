@@ -14,15 +14,30 @@
     <link rel="stylesheet" href="style/css_poll.css">
   </head>
   <body>
+    <nav class="navtop">
+      <div>
+        <h1>Voting and Polling system.</h1>
+      </div>
+    </nav>
     <div class="content home">
       <h2>Polls</h2>
-      <p>Welcome to the home page!!</p>
+      <p>Welcome <?= $_SESSION["username"]?> !!!</p>
+      <?php
+        $query = "SELECT count(*) FROM `polls`";
+        $res = mysqli_query($con, $query);
+        if($res == 0){
+      ?>
+      <h2>You have no upcoming polls.</h2>
+      <?php
+        }
+      ?>
       <table>
         <thead>
             <tr>
                 <td>#</td>
                 <td>Title</td>
 				        <td>Answers</td>
+                <td>Deadline</td>
                 <td></td>
             </tr>
             <?php $s_no = 0; ?>
@@ -35,28 +50,49 @@
                 <td><?=$poll['title']?></td>
                 <?php $id = $poll['id'];
                 $username = $_SESSION["username"];?>
-				<td><?=$poll['answers']?></td>
+				        <td><?=$poll['answers']?></td>
+                <td><?=$poll['deadline']?></td>
+
                 <td class="actions">
 					          <p>
-                      <?php
-                        $query = "SELECT * FROM `voted` WHERE (poll_id = '$id') AND (user = '$username') AND status = 1";
-                        $res = mysqli_query($con, $query);
+                    <?php
+                    $query = "SELECT * FROM `voted` WHERE (poll_id = '$id') AND (user = '$username') AND status = 1";
+                    $res = mysqli_query($con, $query);
 
-                        if(mysqli_num_rows($res) > 0){
-                        ?>
-                        <button disabled type="submit" class="view" name="button">Voted</button>
-                      <?php } else{ ?>
-                        <a href="vote.php?id=<?=$poll['id']?>" class="view" title="Vote">Vote.</a>
-                       <?php }?>
+                    $sql = "SELECT * FROM `result` WHERE (poll_id = '$id')";
+                    $result = mysqli_query($con, $sql);
 
-                      <a href="result.php?id=<?=$poll['id']?>" class="view" title="Result">Result.</a>
+                    $date = date("d/m/Y H:i");
+                    $q = "SELECT * FROM `polls` WHERE (id = '$id') AND (deadline = '$date')";
+                    $r = mysqli_query($con, $q);
+
+                    if(mysqli_num_rows($result) > 0 || mysqli_num_rows($r) > 0){
+                      ?><a href="result.php?id=<?=$poll['id']?>" class="view" title="Result">View Result.</a> <?php
+                    }
+                    else{
+                      if(mysqli_num_rows($res) > 0){
+                      ?><button disabled type="submit" class="view" name="button" style="background-color: red; border: none">Voted</button> <?php
+                      }
+                      else{
+                        ?><a href="vote.php?id=<?=$poll['id']?>" class="view" title="Vote">Vote.</a> <?php
+                      }
+                    }
+                    ?>
                     </p>
                 </td>
+
             </tr>
+
             <?php endforeach; ?>
         </tbody>
     </table>
     <a href="logout.php">Logout.</a>
     </div>
+    <script>
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+        console.info( "This page is reloaded" );
+        window.open("login.php", "_self");
+    }
+    </script>
   </body>
 </html>

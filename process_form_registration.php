@@ -23,6 +23,8 @@
 
         if(mysqli_num_rows($res) > 0){
           $message = "Username Already exits.";
+          echo "<div class='form'>
+                <h3>Username Already exits.</h3><br/>";
         }
         else{
         $query    = "INSERT into `login` (username, password)

@@ -12,7 +12,7 @@
     //setcookie($username[$id], "1");
     $query = "INSERT into `voted` (poll_id, user, status) VALUES ('$id', '$username', '1')";
     mysqli_query($con, $query);
-    
+
     $query = "SELECT * FROM `polls` WHERE (id = '$id')";
     $res = mysqli_query($con, $query);
 
@@ -28,7 +28,11 @@
         $res = mysqli_query($con, $query);
         $msg = 'success';
         echo $msg;
-        header('Location: poll_index.php');
+        if(strcmp($_SESSION["username"], "vaish") == 0)
+          header('Location: poll_index_admin.php');
+        else {
+          header('Location: poll_index.php');
+        }
 
         exit;
       }
@@ -60,12 +64,11 @@
         <label>
           <input type="radio" name="poll_answer" value="<?= $poll_answers[$i]['id']?>"<?=$i == 0 ? ' checked' : ''?>>
           <?= $poll_answers[$i]['title'] ?>
-
+        </br>
         </label>
       <?php endfor; ?>
       <div>
         <input type="submit" name="" value="Vote">
-        <a href="result.php?id=<?=$poll['id']?>">View Result</a>
       </div>
       </form>
     </div>
