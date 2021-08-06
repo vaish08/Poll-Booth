@@ -16,7 +16,8 @@
   <body>
     <nav class="navtop">
       <div>
-        <h1>Voting and Polling system.</h1>
+        <h1>Voting and Poll System.</h1>
+        <a href="logout.php">Logout</a>
       </div>
     </nav>
     <div class="content home">
@@ -59,14 +60,19 @@
                     $query = "SELECT * FROM `voted` WHERE (poll_id = '$id') AND (user = '$username') AND status = 1";
                     $res = mysqli_query($con, $query);
 
-                    $sql = "SELECT * FROM `result` WHERE (poll_id = '$id')";
-                    $result = mysqli_query($con, $sql);
-
                     $date = date("d/m/Y H:i");
                     $q = "SELECT * FROM `polls` WHERE (id = '$id') AND (deadline = '$date')";
                     $r = mysqli_query($con, $q);
 
-                    if(mysqli_num_rows($result) > 0 || mysqli_num_rows($r) > 0){
+                    if(mysqli_num_rows($r) > 0){
+                      $query    = "INSERT into `result` (poll_id) VALUES ('$id')";
+                      $result   = mysqli_query($con, $query);
+                    }
+
+                    $sql = "SELECT * FROM `result` WHERE (poll_id = '$id')";
+                    $result = mysqli_query($con, $sql);
+
+                    if(mysqli_num_rows($result) > 0){
                       ?><a href="result.php?id=<?=$poll['id']?>" class="view" title="Result">View Result.</a> <?php
                     }
                     else{
@@ -86,13 +92,14 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="logout.php">Logout.</a>
     </div>
     <script>
     if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-        console.info( "This page is reloaded" );
         window.open("login.php", "_self");
     }
     </script>
+    <div style="height: 75px; padding: 10px; text-align: center">
+      <footer><h1>© Copyright 2021 Vaishnavi B</h1></footer>
+    </div>
   </body>
 </html>

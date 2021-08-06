@@ -54,6 +54,7 @@
         Upload file.
         <input type="file" name="photo" ><br>
         <label for="deadline">Deadline</label><br>
+        <em>Note: Time is 24hr formate </em>
         <input type="text" name="deadline" id="deadline" placeholder="dd/mm/yyyy hh/mm"><br>
         <input type="submit" value="Create" name="upload">
 

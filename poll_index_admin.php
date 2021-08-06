@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="style/css_poll.css">
   </head>
   <body>
+    <nav class="navtop">
+      <div>
+        <h1>Voting and Poll System.</h1>
+        <a href="logout.php">🔴 Logout</a>
+      </div>
+
+    </nav>
     <div class="content home">
       <h2>Polls</h2>
       <p>Welcome <?= $_SESSION["username"]?>,</p>
@@ -63,8 +70,9 @@
           </tbody>
       </table>
       </div>
-
-    <a href="logout.php">Logout.</a>
+    </div>
+    <div style="height: 75px; padding: 10px; text-align: center">
+      <footer><h1>© Copyright 2021 Vaishnavi B</h1></footer>
     </div>
   </body>
 </html>
