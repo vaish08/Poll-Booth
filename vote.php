@@ -54,6 +54,11 @@
     <link rel="stylesheet" href="style/css_poll.css">
   </head>
   <body>
+    <nav class="navtop">
+      <div>
+        <h1>Voting and Poll System.</h1>
+      </div>
+    </nav>
     <div class="content poll-vote">
       <h2><?=$poll['title'] ?></h2>
       <p><?= $poll['description'] ?></p>

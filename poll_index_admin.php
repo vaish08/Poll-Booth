@@ -21,7 +21,6 @@
         <h1>Voting and Poll System.</h1>
         <a href="logout.php">🔴 Logout</a>
       </div>
-
     </nav>
     <div class="content home">
       <h2>Polls</h2>
