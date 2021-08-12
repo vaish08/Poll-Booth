@@ -10,7 +10,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Index</title>
     <link rel="stylesheet" href="style/css_poll.css">
   </head>
   <body>
@@ -22,7 +22,10 @@
     </nav>
     <div class="content home">
       <h2>Polls</h2>
-      <p>Welcome <?= $_SESSION["username"]?> !!!</p>
+      <p style="font-size: 20px">Welcome <b><?= $_SESSION["username"]?></b> !!!</p>
+      <p style="font-size: 15px">
+        You will be able to see the result, after the admin ends the poll or past the deadline.
+      </p><br />
       <?php
         $query = "SELECT count(*) FROM `polls`";
         $res = mysqli_query($con, $query);
@@ -94,9 +97,9 @@
     </table>
     </div>
     <script>
-    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-        window.open("login.php", "_self");
-    }
+    // if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+    //     window.open("login.php", "_self");
+    // }
     </script>
     <div style="height: 75px; padding: 10px; text-align: center">
       <footer><h1>© Copyright 2021 Vaishnavi B</h1></footer>

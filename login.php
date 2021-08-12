@@ -5,8 +5,17 @@
     <meta charset="utf-8"/>
     <title>Login</title>
     <link rel="stylesheet" href="style/css_reg.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+  <h1
+    style="color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    text-align: center;
+    font-size: 50px"> Vote  and  Poll  System </h1>
 <?php
     require('db.php');
     session_start();
@@ -36,7 +45,7 @@
         }
     } else {
 ?>
-    
+
     <form class="form" method="post" name="login">
         <h1 class="login-title">Login</h1>
         <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true"/>

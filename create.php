@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="style/css_poll.css">
   </head>
   <body>
+    <nav class="navtop">
+      <div>
+        <h1>Voting and Poll System.</h1>
+        <a href="logout.php">Logout</a>
+      </div>
+    </nav>
     <?php
       $msg = '';
       require('db.php');
@@ -56,17 +62,16 @@
         <label for="deadline">Deadline</label><br>
         <input type="text" name="deadline" id="deadline" placeholder="dd/mm/yyyy hh/mm">
         <em>Note: Time is 24hr formate (dd/mm/yyyy hh/mm)</em><br>
-        <input type="submit" value="Create" name="upload">
-
-        <p>
-          Click here to <a href="logout.php"> Logout.</a>
-        </p>
+        <input type="submit" value="Create" name="upload" />
        </form>
 
 
        <?php if ($msg): ?>
          <p><?=$msg?></p>
        <?php endif; ?>
+     </div>
+     <div style="height: 75px; padding: 10px; text-align: center">
+       <footer><h1>© Copyright 2021 Vaishnavi B</h1></footer>
      </div>
   </body>
 </html>

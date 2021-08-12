@@ -2,11 +2,17 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Register</title>
     <link rel="stylesheet" href="style/css_reg.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
-
+    <h1
+      style="color: #EEEEEE;
+      font-family: 'Roboto', sans-serif;
+      padding: 10px;
+      text-align: center;
+      font-size: 50px"> Vote  and  Poll  System </h1>
     <form class="form" action="" method="post">
         <h1 class="login-title">Registration</h1>
         <input type="text" class="login-input" name="username" placeholder="Username" required />

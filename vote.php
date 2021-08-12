@@ -4,12 +4,7 @@
   $msg = '';
   if(isset($_GET['id'])){
     $username = $_SESSION["username"];
-    // if(!isset($_SESSION['voted'],$_SESSION['voted'][(string)$_GET['id']])){
-    // if(!isset($_SESSION['voted'])) $_SESSION['voted'] = array();
-    // $_SESSION['voted'][(string)$_GET['id']] = true;
     $id = $_GET['id'];
-    //setcookie($_SESSION["username"], $id);
-    //setcookie($username[$id], "1");
     $query = "INSERT into `voted` (poll_id, user, status) VALUES ('$id', '$username', '1')";
     mysqli_query($con, $query);
 
@@ -73,9 +68,12 @@
         </label>
       <?php endfor; ?>
       <div>
-        <input type="submit" name="" value="Vote">
+        <input type="submit" name="vote" value="Vote">
       </div>
       </form>
+    </div>
+    <div style="height: 75px; padding: 10px; text-align: center">
+      <footer><h1>© Copyright 2021 Vaishnavi B</h1></footer>
     </div>
   </body>
 </html>

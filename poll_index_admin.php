@@ -12,7 +12,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Index</title>
     <link rel="stylesheet" href="style/css_poll.css">
   </head>
   <body>

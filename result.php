@@ -31,13 +31,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Result</title>
     <link rel="stylesheet" href="style/css_poll.css">
   </head>
   <body>
+    <nav class="navtop">
+      <div>
+        <h1>Voting and Poll System.</h1>
+      </div>
+    </nav>
     <div class="content poll-result">
       <h2><?= $poll['title'] ?></h2>
       <p><?= $poll['discription']?></p>
+      <img src = "uploads/<?php echo $poll['photo']; ?>" heigth="200" width="200">
       <div class="wrapper">
         <?php foreach($poll_answers as $poll_answer):?>
           <div class="poll-question">
@@ -49,7 +55,8 @@
           <?php endforeach; ?>
       </div>
     </div>
-
-
+    <div style="height: 75px; padding: 10px; text-align: center">
+      <footer><h1>© Copyright 2021 Vaishnavi B</h1></footer>
+    </div>
   </body>
 </html>

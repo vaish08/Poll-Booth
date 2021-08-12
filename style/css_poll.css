@@ -119,18 +119,7 @@ body {
       padding: 10px 12px;
       border-radius: 5px;
 }
-/* .home table tbody tr td.actions .trash {
-      background-color: #b73737;
-}
-.home table tbody tr td.actions .trash:hover {
-      background-color: #a33131;
-} */
-/* .home table tbody tr td.actions .edit {
-      background-color: #37afb7;
-}
-.home table tbody tr td.actions .edit:hover {
-      background-color: #319ca3;
-} */
+
 .home table tbody tr td.actions .view {
       background-color: #37b770;
       margin-right: 10px;
@@ -175,22 +164,7 @@ body {
 .update form input[type="submit"]:hover {
       background-color: #32a367;
 }
-/* .delete .yesno {
-      display: flex;
-}
-.delete .yesno a {
-      display: inline-block;
-      text-decoration: none;
-      background-color: #38b673;
-      font-weight: bold;
-      color: #FFFFFF;
-      padding: 10px 15px;
-      margin: 15px 10px 15px 0;
-      border-radius: 5px;
-}
-.delete .yesno a:hover {
-      background-color: #32a367;
-}*/
+
 .poll-vote form {
       display: flex;
       flex-flow: column;
